@@ -271,13 +271,7 @@ class GitRepository:
         Returns:
             bytes: the output of the Git command
         """
-        print("self._root")
-        print(repr(self._root))
-        print("args")
-        print(repr(args))
-        print("kwargs")
-        print(repr(kwargs))
-        return check_output(("git", "-C", self._root) + args, **kwargs)
+        return check_output(("git", "-C", str(self._root)) + args, **kwargs)
 
     def _abs_path(self, path: str) -> Path:
         """Get the absolute path given a path relative to the project root.
